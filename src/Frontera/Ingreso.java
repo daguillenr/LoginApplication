@@ -5,6 +5,9 @@
  */
 package Frontera;
 
+import Control.ValidarLogin;
+import Entidad.Usuario;
+
 /**
  *
  * @author user
@@ -38,6 +41,11 @@ public class Ingreso extends javax.swing.JPanel {
         jLabel2.setText("Contraseña");
 
         AceptarB.setText("Aceptar");
+        AceptarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AceptarBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,6 +82,19 @@ public class Ingreso extends javax.swing.JPanel {
                 .addContainerGap(167, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AceptarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBActionPerformed
+           Usuario usuario = new Usuario ();
+           usuario.setNombre(nombreTF.getText());
+           usuario.setContraseña(contraseniaTF.getText());
+           
+           ValidarLogin validar = new ValidarLogin();
+           
+           System.out.println("----------");
+           String resultado = validar.verificarLogin(usuario);
+           System.out.println(resultado);
+
+    }//GEN-LAST:event_AceptarBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
